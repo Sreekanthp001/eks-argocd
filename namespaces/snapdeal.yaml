@@ -1,7 +1,7 @@
-apiVersion: v1
-kind: Namespace 
-metadata: 
-  name: snapdeal
-  labels: 
-    project: snapdeal
-    environment: dev
+# apiVersion: v1
+# kind: Namespace 
+# metadata: 
+#   name: snapdeal
+#   labels: 
+#     project: snapdeal
+#     environment: dev
