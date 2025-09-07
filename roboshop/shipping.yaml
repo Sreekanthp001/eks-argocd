@@ -16,20 +16,17 @@ kind: Deployment
 metadata:
   name: shipping
   namespace: roboshop
-  # deployment labels
   labels:
     component: shipping
     project: roboshop
     tier: app
 spec: 
   replicas: 1
-  # these are the labels replica set use to create pod replicas, this should match pod labels
   selector: 
     matchLabels:
       component: shipping
       project: roboshop
       tier: app
-  # this is pod definition
   template:
     metadata:
       labels:
@@ -39,8 +36,8 @@ spec:
     spec:
       containers:
       - name: shipping
-        image: 632745187858.dkr.ecr.us-east-1.amazonaws.com/roboshop/shipping:v1 #here give your ecr shipping image
-        envForm:
+        image: 632745187858.dkr.ecr.us-east-1.amazonaws.com/roboshop/shipping:v1
+        envFrom:
         - configMapRef:
             name: shipping
 ---
@@ -60,5 +57,5 @@ spec:
     tier: app
   ports: 
   - protocol: TCP
-    port: 8080 # service port
+    port: 8080       # service port
     targetPort: 8080 # container port
