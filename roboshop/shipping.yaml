@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: shipping
-        image: 632745187858.dkr.ecr.us-east-1.amazonaws.com/roboshop/shipping #here give your ecr shipping image
+        image: 632745187858.dkr.ecr.us-east-1.amazonaws.com/roboshop/shipping:v1 #here give your ecr shipping image
         envForm:
         - ConfigMapRef:
             name: shipping
