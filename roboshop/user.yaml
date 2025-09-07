@@ -42,7 +42,7 @@ spec:
       - name: user
         image: 632745187858.dkr.ecr.us-east-1.amazonaws.com/roboshop/user:v1 #here give your ecr user image 
         envForm: 
-        - ConfigMapRef:
+        - configMapRef:
             name: user
 ---
 apiVersion: v1

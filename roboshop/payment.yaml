@@ -12,7 +12,7 @@ data:
   CART_PORT: "8080"
   USER_HOST: "user"
   USER_PORT: "8080"
-  AMOP_HOST: "rabbitmq"
+  AMQP_HOST: "rabbitmq"   # fixed typo here
 ---
 apiVersion: v1
 kind: Secret
@@ -33,20 +33,17 @@ kind: Deployment
 metadata: 
   name: payment
   namespace: roboshop
-  # deployment labels
   labels:
     component: payment
     project: roboshop
     tier: app
 spec:
   replicas: 1
-  # these are the labels replica set use to create pod replicas, this should match pod labels
   selector:
     matchLabels:
       component: payment
       project: roboshop
       tier: app
-  # this is pod definition
   template:
     metadata:
       labels:
@@ -56,9 +53,9 @@ spec:
     spec: 
       containers:
       - name: payment
-        image: 632745187858.dkr.ecr.us-east-1.amazonaws.com/roboshop/payment:v1 # give here your ecr payment image id
-        envForm:
-        - ConfigMapRef:
+        image: 632745187858.dkr.ecr.us-east-1.amazonaws.com/roboshop/payment:v1
+        envFrom:
+        - configMapRef:
             name: payment
         - secretRef: 
             name: payment
@@ -79,5 +76,5 @@ spec:
     tier: app
   ports:
   - protocol: TCP
-    port: 8080 #service port
-    targetPort: 8080 #container port 
+    port: 8080       # service port
+    targetPort: 8080 # container port
