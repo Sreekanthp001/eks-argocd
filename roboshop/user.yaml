@@ -40,7 +40,7 @@ spec:
     spec:
       containers:
       - name: user
-        image: #here give your ecr user image 
+        image: 632745187858.dkr.ecr.us-east-1.amazonaws.com/roboshop/user #here give your ecr user image 
         envForm: 
         - ConfigMapRef:
             name: user

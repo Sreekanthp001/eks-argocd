@@ -40,7 +40,7 @@ spec:
     spec: 
       containers:
       - name: cart
-        image: # here give your ecr image url
+        image: 632745187858.dkr.ecr.us-east-1.amazonaws.com/roboshop/cart # here give your ecr image url
         envForm:
         - ConfigMapRef:
             name: cart

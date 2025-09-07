@@ -56,7 +56,7 @@ spec:
     spec: 
       containers:
       - name: payment
-        image: # give here your ecr payment image id
+        image: 632745187858.dkr.ecr.us-east-1.amazonaws.com/roboshop/payment # give here your ecr payment image id
         envForm:
         - ConfigMapRef:
             name: payment
