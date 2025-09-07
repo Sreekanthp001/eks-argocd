@@ -5,13 +5,13 @@ metadata:
   namespace: argocd # namespace where the argocd application resource lives
   finalizers:
     # the default behaviour is foreground cascading deletion
-    #- resources-finalizers.argocd.argoproj.io
+    - resources-finalizers.argocd.argoproj.io
 spec:
   project: default # the argo cd project this application belongs to 
   source:
     repoURL: https://github.com/Sreekanthp001/eks-argocd.git #url of the git repository
     targetRevision: main # the specific branch, tag, or commit to sync from
-    path: application # the path within the repository where the application manifests are located
+    path: applications # the path within the repository where the application manifests are located
   destination: 
     server: https://kubernetes.default.svc # the api server url of the target kubernetes cluster
     namespace: argocd # the namespace in the target cluster where the application will be deployed
